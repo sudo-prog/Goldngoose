@@ -1,4 +1,3 @@
-cat << 'EOF' > README.md
 # PolyBloom – Ultimate Crypto Bloomberg Terminal + AI Trading Studio
 
 Bootstrap init for the autonomous Cursor Cloud Agents swarm build.
@@ -12,4 +11,3 @@ Full live data, draggable neon-green panels, native iOS app, self-improving agen
 **Next:** Chief agent spawns, creates COORDINATION_BOARD.md + AGENTS.md, outputs specialist prompts.
 
 Let's ship nuclear while free window open. 🚀🪖📈
-EOF
