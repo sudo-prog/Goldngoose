@@ -3,6 +3,9 @@
 import { useEffect } from "react";
 import { useMarketsStore } from "@/lib/stores/marketsStore"; 
 import { MarketGrid } from "@/components/MarketTicker";
+import { ClawControlPanel } from "@/components/ClawControlPanel";
+import { NewsRadarPanel } from "@/components/NewsRadarPanel";
+import { BacktesterPanel } from "@/components/BacktesterPanel";
 import { Button } from "ui";
 
 export function TerminalDashboard() {
@@ -17,71 +20,64 @@ export function TerminalDashboard() {
   }, [fetchTopMarkets]);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 p-4 min-h-screen bg-polybloom-dark">
+    <div className="min-h-screen bg-polybloom-dark p-4 space-y-4">
       {/* Header */}
-      <div className="lg:col-span-4 mb-4">
-        <div className="panel flex items-center justify-between">
+      <div className="panel border-b-2 border-polybloom-neon">
+        <div className="flex items-center justify-between">
           <div>
-            <h1 className="neon-glow text-3xl">💹 PolyBloom Terminal</h1>
-            <p className="text-slate-400 text-sm mt-1">Real-time crypto markets</p>
+            <h1 className="neon-glow text-4xl">💹 PolyBloom Terminal</h1>
+            <p className="text-slate-400 text-sm mt-1">Bloomberg-style crypto trading + AI</p>
           </div>
           <div className="flex gap-2">
             <Button size="sm" variant="outline" onClick={() => fetchTopMarkets()}>
               🔄 Refresh
             </Button>
+            <Button size="sm" variant="ghost">
+              ⚙️ Settings
+            </Button>
           </div>
         </div>
       </div>
 
-      {/* Markets Panel - Left Sidebar */}
-      <div className="lg:col-span-1">
-        <div className="sticky top-4">
-          <h2 className="text-lg font-semibold text-polybloom-neon mb-4">Top Markets</h2>
-          {error ? (
-            <div className="panel text-red-400 text-sm">{error}</div>
-          ) : (
-            <MarketGrid markets={markets} loading={loading} />
-          )}
+      {/* Main Content Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        {/* Left Sidebar - Markets & News */}
+        <div className="lg:col-span-1 space-y-4">
+          <div>
+            <h2 className="text-lg font-semibold text-polybloom-neon mb-3">📊 Top Markets</h2>
+            {error ? (
+              <div className="panel text-red-400 text-sm">{error}</div>
+            ) : (
+              <MarketGrid markets={markets.slice(0, 15)} loading={loading} />
+            )}
+          </div>
+        </div>
+
+        {/* Center - Trading & Bot Control */}
+        <div className="lg:col-span-2 space-y-4">
+          <ClawControlPanel />
+          <BacktesterPanel />
+        </div>
+
+        {/* Right Sidebar - News & Intelligence */}
+        <div className="lg:col-span-1">
+          <NewsRadarPanel />
         </div>
       </div>
 
-      {/* Main Content Area */}
-      <div className="lg:col-span-3 space-y-4">
-        {/* Stats Cards */}
-        <div className="grid grid-cols-3 gap-4">
-          <div className="panel text-center">
-            <p className="text-slate-400 text-sm">Total Markets</p>
-            <p className="neon-glow text-2xl">{markets.length}</p>
-          </div>
-          <div className="panel text-center">
-            <p className="text-slate-400 text-sm">Market Cap</p>
-            <p className="neon-glow text-2xl">$T</p>
-          </div>
-          <div className="panel text-center">
-            <p className="text-slate-400 text-sm">24h Volume</p>
-            <p className="neon-glow text-2xl">$B</p>
-          </div>
-        </div>
+      {/* Bottom - Command Bar */}
+      <div className="panel font-mono text-sm border-t border-polybloom-neon">
+        <p className="text-polybloom-neon mb-2">💬 Command Bar</p>
+        <input
+          type="text"
+          placeholder="&gt; Type a command (e.g., 'add panel market-overview', 'list bots', 'start backtest')"
+          className="w-full bg-transparent text-white outline-none focus:ring-2 focus:ring-polybloom-neon px-2 py-1 rounded"
+        />
+      </div>
 
-        {/* Placeholder for Charts */}
-        <div className="panel min-h-96 flex items-center justify-center">
-          <div className="text-center">
-            <p className="neon-text text-lg">📊 Advanced Charts</p>
-            <p className="text-slate-400 text-sm mt-2">
-              TradingView Lightweight Charts integration coming soon
-            </p>
-          </div>
-        </div>
-
-        {/* Command Bar */}
-        <div className="panel font-mono text-sm">
-          <p className="text-slate-400">&gt; Type a command...</p>
-          <input
-            type="text"
-            placeholder="add panel market-overview"
-            className="w-full bg-transparent text-polybloom-neon outline-none mt-2"
-          />
-        </div>
+      {/* Footer */}
+      <div className="text-center text-slate-600 text-xs py-4">
+        <p>PolyBloom Terminal v0.2 | Paper Trading Mode 📄 | Built with Next.js+React+Tailwind</p>
       </div>
     </div>
   );
