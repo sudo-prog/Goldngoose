@@ -1,0 +1,39 @@
+{
+  "name": "polybloom",
+  "version": "0.1.0",
+  "description": "PolyBloom - Ultimate Crypto Bloomberg Terminal + AI Trading Studio",
+  "private": true,
+  "packageManager": "npm@10.0.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check",
+    "test": "turbo run test",
+    "clean": "turbo run clean --no-cache && rm -rf node_modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superpowerstudio/_EYES_ONLY_.git"
+  },
+  "keywords": [
+    "crypto",
+    "trading",
+    "bloomberg",
+    "polymarket",
+    "terminal"
+  ],
+  "author": "PolyBloom Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/superpowerstudio/_EYES_ONLY_/issues"
+  },
+  "homepage": "https://github.com/superpowerstudio/_EYES_ONLY_#readme",
+  "devDependencies": {
+    "turbo": "^2.8.19"
+  }
+}

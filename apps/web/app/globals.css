@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-polybloom-dark text-white;
+    font-family: "Inter", sans-serif;
+  }
+
+  code,
+  pre {
+    @apply font-mono;
+  }
+}
+
+@layer components {
+  .neon-text {
+    @apply text-polybloom-neon font-semibold;
+  }
+
+  .neon-glow {
+    @apply text-polybloom-neon shadow-lg shadow-polybloom-neon/50;
+  }
+
+  .panel {
+    @apply rounded-lg border border-slate-700 bg-slate-900/50 p-4;
+  }
+
+  .command-bar {
+    @apply bg-slate-800 rounded-lg border border-slate-700 px-4 py-2 text-sm font-mono;
+  }
+}

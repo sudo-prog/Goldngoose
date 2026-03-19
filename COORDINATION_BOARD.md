@@ -1,5 +1,10 @@
 ## PolyBloom SWAT Coordination Board
 
+**Mission:** Build PolyBloom neon Bloomberg terminal for Polymarket  
+**Squad Status:** SPAWNED & ARMED  
+**Current Strike:** First draggable neon panel prototype  
+**Next Target:** MarketGhost live data feed  
+
 **Owner:** ELITE_CHIEF_OF_STAFF  
 **Repo:** `superpowerstudio/_EYES_ONLY_`  
 **Branch policy:** feature branches only, PRs into `main`, never push directly to `main`.
