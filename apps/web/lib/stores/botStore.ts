@@ -14,10 +14,22 @@ export interface TradingBot {
   lastUpdated: number;
 }
 
+export interface SafetySettings {
+  maxDailyLossPercent: number;
+  maxPositionSizePercent: number;
+  cooldownAfterLosses: number; // seconds
+  maxConsecutiveLosses: number;
+  emergencyLiquidationEnabled: boolean;
+}
+
 interface BotStore {
   bots: TradingBot[];
   paperMode: boolean;
   globalKillSwitch: boolean;
+  safetySettings: SafetySettings;
+  consecutiveLosses: number;
+  lastLossTime: number | null;
+  dailyPnl: number;
   loading: boolean;
   error: string | null;
 
@@ -25,6 +37,10 @@ interface BotStore {
   startBot: (botId: string) => Promise<void>;
   stopBot: (botId: string) => Promise<void>;
   toggleGlobalKillSwitch: () => void;
+  updateSafetySettings: (settings: Partial<SafetySettings>) => void;
+  emergencyLiquidate: () => void;
+  recordLoss: () => void;
+  canTrade: () => boolean;
   getBot: (botId: string) => TradingBot | undefined;
 }
 
@@ -62,6 +78,16 @@ export const useBotStore = create<BotStore>((set, get) => ({
   bots: PAPER_BOTS,
   paperMode: true, // ALWAYS start in paper mode for safety
   globalKillSwitch: false,
+  safetySettings: {
+    maxDailyLossPercent: 5, // 5% max daily loss
+    maxPositionSizePercent: 10, // 10% max position size
+    cooldownAfterLosses: 300, // 5 minute cooldown after losses
+    maxConsecutiveLosses: 3, // Stop after 3 consecutive losses
+    emergencyLiquidationEnabled: true,
+  },
+  consecutiveLosses: 0,
+  lastLossTime: null,
+  dailyPnl: 0,
   loading: false,
   error: null,
 
@@ -85,6 +111,18 @@ export const useBotStore = create<BotStore>((set, get) => ({
   },
 
   startBot: async (botId: string) => {
+    const { canTrade, globalKillSwitch } = get();
+    
+    if (globalKillSwitch) {
+      set({ error: "Global kill switch is active. Cannot start bot." });
+      return;
+    }
+    
+    if (!canTrade()) {
+      set({ error: "Trading is currently blocked due to safety limits." });
+      return;
+    }
+    
     set((state) => ({
       bots: state.bots.map((bot) =>
         bot.id === botId ? { ...bot, status: "running" } : bot,
@@ -104,6 +142,59 @@ export const useBotStore = create<BotStore>((set, get) => ({
     set((state) => ({
       globalKillSwitch: !state.globalKillSwitch,
     }));
+  },
+
+  updateSafetySettings: (settings: Partial<SafetySettings>) => {
+    set((state) => ({
+      safetySettings: { ...state.safetySettings, ...settings },
+    }));
+  },
+
+  emergencyLiquidate: () => {
+    const { safetySettings } = get();
+    if (!safetySettings.emergencyLiquidationEnabled) return;
+    
+    set((state) => ({
+      globalKillSwitch: true,
+      bots: state.bots.map((bot) => ({
+        ...bot,
+        status: "stopped",
+        activeTrades: 0,
+      })),
+    }));
+  },
+
+  recordLoss: () => {
+    set((state) => ({
+      consecutiveLosses: state.consecutiveLosses + 1,
+      lastLossTime: Date.now(),
+    }));
+  },
+
+  canTrade: () => {
+    const { safetySettings, consecutiveLosses, lastLossTime, dailyPnl, globalKillSwitch } = get();
+    
+    if (globalKillSwitch) return false;
+    
+    // Check consecutive losses
+    if (consecutiveLosses >= safetySettings.maxConsecutiveLosses) {
+      return false;
+    }
+    
+    // Check cooldown after losses
+    if (lastLossTime) {
+      const timeSinceLastLoss = (Date.now() - lastLossTime) / 1000;
+      if (timeSinceLastLoss < safetySettings.cooldownAfterLosses) {
+        return false;
+      }
+    }
+    
+    // Check daily loss limit
+    if (dailyPnl < -safetySettings.maxDailyLossPercent) {
+      return false;
+    }
+    
+    return true;
   },
 
   getBot: (botId: string) => {

@@ -15,10 +15,18 @@ import {
 import { CSS } from "@dnd-kit/utilities";
 import { useMemo } from "react";
 import { useLayoutStore, Panel } from "@/lib/stores/layoutStore";
+
+// Fix for @dnd-kit React 18 type compatibility
+const DndContextFixed = DndContext as React.ComponentType<any>;
 import { ClawControlPanel } from "@/components/ClawControlPanel";
 import { NewsRadarPanel } from "@/components/NewsRadarPanel";
 import { BacktesterPanel } from "@/components/BacktesterPanel";
 import { MarketOverviewPanel } from "@/components/MarketOverviewPanel";
+import { PortfolioPanel } from "@/components/PortfolioPanel";
+import { OrderBookPanel } from "@/components/OrderBookPanel";
+import { InsightChatPanel } from "@/components/InsightChatPanel";
+import { ReplayPanel } from "@/components/ReplayPanel";
+import { StudioMonitorPanel } from "@/components/StudioMonitorPanel";
 
 function SortablePanel({
   panel,
@@ -53,10 +61,10 @@ function SortablePanel({
         {...listeners}
         className="flex items-center justify-between gap-2 mb-3 cursor-grab"
       >
-        <h3 className="text-base font-semibold text-polybloom-neon">
+        <h3 className="text-base font-semibold text-polybloom-gold font-display">
           {panel.title}
         </h3>
-        <span className="text-xs text-slate-500">drag</span>
+        <span className="text-xs text-polybloom-white-dim">drag</span>
       </div>
       {children}
     </div>
@@ -80,11 +88,17 @@ function PanelContent({ panel }: { panel: Panel }) {
         </div>
       );
     case "order-book":
-      return (
-        <div className="text-sm text-slate-300">
-          Order book panel coming soon (placeholder)
-        </div>
-      );
+      return <OrderBookPanel symbol="BTCUSDT" />;
+    case "portfolio":
+      return <PortfolioPanel />;
+    case "backtester":
+      return <BacktesterPanel />;
+    case "insight-chat":
+      return <InsightChatPanel />;
+    case "replay":
+      return <ReplayPanel />;
+    case "studio-monitor":
+      return <StudioMonitorPanel />;
     default:
       return (
         <div className="text-sm text-slate-300">
@@ -119,7 +133,7 @@ export function PanelGrid() {
   };
 
   return (
-    <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
+    <DndContextFixed sensors={sensors} onDragEnd={handleDragEnd}>
       <SortableContext
         items={orderedPanels.map((p) => p.id)}
         strategy={rectSortingStrategy}
@@ -132,6 +146,6 @@ export function PanelGrid() {
           ))}
         </div>
       </SortableContext>
-    </DndContext>
+    </DndContextFixed>
   );
 }

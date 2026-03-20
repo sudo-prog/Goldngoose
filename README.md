@@ -6,7 +6,7 @@ Bootstrap init for the autonomous Cursor Cloud Agents swarm build.
 Full live data, draggable neon-green panels, native iOS app, self-improving agent team.
 
 **Current Phase:** v0 – Repo bootstrap & SWAT team coordination setup  
-**Repo:** https://github.com/superpowerstudio/_EYES_ONLY_ (rename to polybloom-terminal soon?)
+**Repo:** https://github.com/superpowerstudio/PolyBloom
 
 **Next:** Chief agent spawns, creates COORDINATION_BOARD.md + AGENTS.md, outputs specialist prompts.
 

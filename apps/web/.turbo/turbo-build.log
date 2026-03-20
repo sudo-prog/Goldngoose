@@ -1,25 +1,28 @@
 
-
 > web@0.1.0 build
 > next build
 
-[1G[0K   [1m[38;2;173;127;168m▲ Next.js 15.5.13[39m[22m
+ ⚠ Invalid next.config.js options detected: 
+ ⚠     Unrecognized key(s) in object: 'swcMinify'
+ ⚠ See more info here: https://nextjs.org/docs/messages/invalid-next-config
+   ▲ Next.js 15.4.7
 
- [37m[1m [22m[39m Creating an optimized production build ...
-Failed to compile.
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 3.0s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/1) ...
+ ✓ Generating static pages (1/1)
+   Finalizing page optimization ...
+   Collecting build traces ...
 
-./app/terminal/page.tsx
-Module not found: Can't resolve '@/components/TerminalDashboard'
+Route (app)                                 Size  First Load JS
+─ ○ /_not-found                            127 B        99.7 kB
++ First Load JS shared by all            99.6 kB
+  ├ chunks/4bd1b696-cf72ae8a39fa05aa.js  54.1 kB
+  ├ chunks/964-611b54f02d149669.js       43.5 kB
+  └ other shared chunks (total)           1.9 kB
 
-https://nextjs.org/docs/messages/module-not-found
 
+○  (Static)  prerendered as static content
 
-> Build failed because of webpack errors
-[1G[0K⠙[1G[0K[1mnpm[22m [31merror[39m Lifecycle script `build` failed with error:
-[1G[0K⠙[1G[0K[1mnpm[22m [31merror[39m [94mcode[39m [33m1[39m
-[1G[0K⠙[1G[0K[1mnpm[22m [31merror[39m [94mpath[39m /Users/air/_EYES_ONLY_/_EYES_ONLY_/apps/web
-[1G[0K⠙[1G[0K[1mnpm[22m [31merror[39m [94mworkspace[39m web@0.1.0
-[1G[0K⠙[1G[0K[1mnpm[22m [31merror[39m [94mlocation[39m /Users/air/_EYES_ONLY_/_EYES_ONLY_/apps/web
-[1G[0K⠙[1G[0K[1mnpm[22m [31merror[39m command failed
-[1G[0K⠙[1G[0K[1mnpm[22m [31merror[39m [94mcommand[39m sh -c next build
-[1G[0K⠙[1G[0K

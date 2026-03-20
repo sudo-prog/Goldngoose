@@ -8,7 +8,7 @@
 ### 0. Global Rules (All Agents)
 
 - **Repo & Branching**
-  - Work only in the `_EYES_ONLY_` repo (`superpowerstudio/_EYES_ONLY_`).
+  - Work only in the PolyBloom repo (`superpowerstudio/PolyBloom`).
   - Never push directly to `main`. Always create feature branches from `main` (e.g. `feature/ui-grid`, `feature/data-spine`).
   - Keep branches scoped and surgical. Prefer many small, tight PRs over giant ones.
   - Before branching, ensure local `main` is up to date (`git pull --rebase origin main`, resolving conflicts manually if needed).
@@ -46,7 +46,7 @@
 - **Primary Responsibilities**
   - Scaffold Turborepo + Next.js 15 `apps/web` shell.
   - Implement dark void theme (`#0a0a0a` background, `#00ff9f` accents) with Tailwind + shadcn/ui.
-  - Build Bloomberg-style multi-panel grid (drag, resize, dock, save layouts) using `golden-layout` or `@dnd-kit`.
+  - Build Bloomberg-style multi-panel grid (drag, resize, dock, save layouts) using `react-mosaic` for panel management and `@dnd-kit` for within-panel drag interactions.
   - Ship shared components into `packages/ui` (buttons, panels, status bars, tickers).
 
 - **Branch & PR Conventions**

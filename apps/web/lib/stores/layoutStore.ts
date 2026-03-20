@@ -1,7 +1,13 @@
 "use client";
 
 import { create } from "zustand";
-import { arrayMove } from "@dnd-kit/sortable";
+
+// Local implementation of arrayMove to avoid SSR issues with @dnd-kit/sortable
+function arrayMove<T>(array: T[], from: number, to: number): T[] {
+  const newArray = array.slice();
+  newArray.splice(to < 0 ? newArray.length + to : to, 0, newArray.splice(from, 1)[0]);
+  return newArray;
+}
 
 export type PanelType =
   | "markets"
@@ -9,7 +15,12 @@ export type PanelType =
   | "bot-control"
   | "chart"
   | "order-book"
-  | "news";
+  | "news"
+  | "portfolio"
+  | "backtester"
+  | "insight-chat"
+  | "replay"
+  | "studio-monitor";
 
 export interface Panel {
   id: string;
@@ -42,10 +53,18 @@ const DEFAULT_PANELS: Panel[] = [
     visible: true,
   },
   {
-    id: "polymarket-hot",
-    type: "polymarket",
-    title: "Hot Markets",
+    id: "portfolio-main",
+    type: "portfolio",
+    title: "Portfolio",
     position: 1,
+    size: "medium",
+    visible: true,
+  },
+  {
+    id: "order-book-btc",
+    type: "order-book",
+    title: "Order Book (BTC)",
+    position: 2,
     size: "medium",
     visible: true,
   },
@@ -53,8 +72,24 @@ const DEFAULT_PANELS: Panel[] = [
     id: "bot-claw",
     type: "bot-control",
     title: "Claw Control",
-    position: 2,
+    position: 3,
     size: "large",
+    visible: true,
+  },
+  {
+    id: "backtester-main",
+    type: "backtester",
+    title: "Backtester",
+    position: 4,
+    size: "medium",
+    visible: true,
+  },
+  {
+    id: "polymarket-hot",
+    type: "polymarket",
+    title: "Hot Markets",
+    position: 5,
+    size: "medium",
     visible: true,
   },
 ];

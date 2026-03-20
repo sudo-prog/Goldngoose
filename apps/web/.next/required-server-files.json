@@ -10,12 +10,11 @@
       "ignoreBuildErrors": false,
       "tsconfigPath": "tsconfig.json"
     },
-    "typedRoutes": false,
     "distDir": ".next",
     "cleanDistDir": true,
     "assetPrefix": "",
     "cacheMaxMemorySize": 52428800,
-    "configOrigin": "next.config.ts",
+    "configOrigin": "next.config.js",
     "useFileSystemPublicRoutes": true,
     "generateEtags": true,
     "pageExtensions": [
@@ -56,7 +55,6 @@
       "formats": [
         "image/webp"
       ],
-      "maximumResponseBody": 50000000,
       "dangerouslyAllowSVG": false,
       "contentSecurityPolicy": "script-src 'none'; frame-src 'none'; sandbox;",
       "contentDispositionType": "attachment",
@@ -102,6 +100,7 @@
     "outputFileTracingRoot": "/Users/air/_EYES_ONLY_/_EYES_ONLY_",
     "experimental": {
       "useSkewCookie": false,
+      "nodeMiddleware": false,
       "cacheLife": {
         "default": {
           "stale": 300,
@@ -109,7 +108,7 @@
           "expire": 4294967294
         },
         "seconds": {
-          "stale": 30,
+          "stale": 0,
           "revalidate": 1,
           "expire": 60
         },
@@ -149,7 +148,6 @@
       "linkNoTouchStart": false,
       "caseSensitiveRoutes": false,
       "clientSegmentCache": false,
-      "clientParamParsing": false,
       "dynamicOnHover": false,
       "preloadEntriesOnStart": true,
       "clientRouterFilter": true,
@@ -164,7 +162,6 @@
       "imgOptTimeoutInSeconds": 7,
       "imgOptMaxInputPixels": 268402689,
       "imgOptSequentialRead": null,
-      "imgOptSkipMetadata": null,
       "isrFlushToDisk": true,
       "workerThreads": false,
       "optimizeCss": false,
@@ -179,6 +176,7 @@
       "swcTraceProfiling": false,
       "forceSwcTransforms": false,
       "largePageDataBytes": 128000,
+      "typedRoutes": false,
       "typedEnv": false,
       "parallelServerCompiles": false,
       "parallelServerBuildTraces": false,
@@ -197,14 +195,15 @@
       "serverComponentsHmrCache": true,
       "staticGenerationMaxConcurrency": 8,
       "staticGenerationMinPagesPerWorker": 25,
-      "cacheComponents": false,
+      "dynamicIO": false,
       "inlineCss": false,
       "useCache": false,
       "globalNotFound": false,
-      "devtoolSegmentExplorer": true,
+      "devtoolNewPanelUI": false,
+      "devtoolSegmentExplorer": false,
       "browserDebugInfoInTerminal": false,
       "optimizeRouterScrolling": false,
-      "middlewareClientMaxBodySize": 10485760,
+      "strictNextHead": true,
       "optimizePackageImports": [
         "lucide-react",
         "date-fns",
@@ -285,9 +284,10 @@
       "trustHostHeader": false,
       "isExperimentalCompile": false
     },
-    "htmlLimitedBots": "[\\w-]+-Google|Google-[\\w-]+|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti|googleweblight",
+    "htmlLimitedBots": "Mediapartners-Google|Chrome-Lighthouse|Slurp|DuckDuckBot|baiduspider|yandex|sogou|bitlybot|tumblr|vkShare|quora link preview|redditbot|ia_archiver|Bingbot|BingPreview|applebot|facebookexternalhit|facebookcatalog|Twitterbot|LinkedInBot|Slackbot|Discordbot|WhatsApp|SkypeUriPreview|Yeti",
     "bundlePagesRouterDependencies": false,
-    "configFileName": "next.config.ts",
+    "configFileName": "next.config.js",
+    "swcMinify": true,
     "turbopack": {
       "root": "/Users/air/_EYES_ONLY_/_EYES_ONLY_"
     }
@@ -309,12 +309,14 @@
     ".next/app-build-manifest.json",
     ".next/server/server-reference-manifest.js",
     ".next/server/server-reference-manifest.json",
+    ".next/dynamic-css-manifest.json",
+    ".next/server/dynamic-css-manifest.js",
     ".next/BUILD_ID",
     ".next/server/next-font-manifest.js",
     ".next/server/next-font-manifest.json",
     ".next/required-server-files.json"
   ],
   "ignore": [
-    "../../node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*"
+    "node_modules/next/dist/compiled/@ampproject/toolbox-optimizer/**/*"
   ]
 }
