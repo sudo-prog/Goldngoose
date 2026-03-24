@@ -1,26 +1,26 @@
-/* PolyBloom Font Imports */
+/* goldngoose Font Imports */
 @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Space+Grotesk:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* PolyBloom CSS Variables */
+/* goldngoose CSS Variables */
 :root {
-  --polybloom-dark: #0a1019;
-  --polybloom-navy-mid: #111827;
-  --polybloom-navy-light: #1a2332;
-  --polybloom-gold: #c49a3c;
-  --polybloom-gold-dim: #a07d2e;
-  --polybloom-gold-bright: #dbb44c;
-  --polybloom-ice: #7ba7c2;
-  --polybloom-ice-dim: #5a8aa8;
-  --polybloom-ice-bright: #9dc2d8;
-  --polybloom-red: #c44040;
-  --polybloom-white: #e8e4dc;
-  --polybloom-white-dim: #b0a898;
-  --polybloom-neon: #c49a3c;
-  --polybloom-accent: #7ba7c2;
+  --goldngoose-dark: #0a1019;
+  --goldngoose-navy-mid: #111827;
+  --goldngoose-navy-light: #1a2332;
+  --goldngoose-gold: #c49a3c;
+  --goldngoose-gold-dim: #a07d2e;
+  --goldngoose-gold-bright: #dbb44c;
+  --goldngoose-ice: #7ba7c2;
+  --goldngoose-ice-dim: #5a8aa8;
+  --goldngoose-ice-bright: #9dc2d8;
+  --goldngoose-red: #c44040;
+  --goldngoose-white: #e8e4dc;
+  --goldngoose-white-dim: #b0a898;
+  --goldngoose-neon: #c49a3c;
+  --goldngoose-accent: #7ba7c2;
   
   /* Background colors */
   --background-primary: #0A1019;
@@ -90,34 +90,34 @@ body {
 }
 
 /* Text Color Classes */
-.text-polybloom-gold {
-  color: var(--polybloom-gold);
+.text-goldngoose-gold {
+  color: var(--goldngoose-gold);
 }
 
-.text-polybloom-white {
+.text-goldngoose-white {
   color: var(--text-primary);
 }
 
-.text-polybloom-white-dim {
+.text-goldngoose-white-dim {
   color: var(--text-dim);
 }
 
-.text-polybloom-ice {
-  color: var(--polybloom-ice);
+.text-goldngoose-ice {
+  color: var(--goldngoose-ice);
 }
 
-.text-polybloom-red {
-  color: var(--polybloom-red);
+.text-goldngoose-red {
+  color: var(--goldngoose-red);
 }
 
 /* Neon Text Effects */
 .neon-text {
-  color: var(--polybloom-gold);
+  color: var(--goldngoose-gold);
   text-shadow: 0 0 10px rgba(196, 154, 60, 0.3);
 }
 
 .neon-glow {
-  color: var(--polybloom-gold);
+  color: var(--goldngoose-gold);
   text-shadow: 
     0 0 5px rgba(196, 154, 60, 0.5),
     0 0 10px rgba(196, 154, 60, 0.3),
@@ -141,7 +141,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--polybloom-gold-dim);
+  background: var(--goldngoose-gold-dim);
 }
 
 /* Animation Classes */
@@ -160,7 +160,7 @@ body {
 
 /* Focus Styles */
 *:focus-visible {
-  outline: 2px solid var(--polybloom-gold);
+  outline: 2px solid var(--goldngoose-gold);
   outline-offset: 2px;
 }
 
@@ -171,20 +171,20 @@ body {
 }
 
 /* Utility Classes */
-.bg-polybloom-dark {
+.bg-goldngoose-dark {
   background-color: var(--background-primary);
 }
 
-.bg-polybloom-navy-mid {
+.bg-goldngoose-navy-mid {
   background-color: var(--background-secondary);
 }
 
-.bg-polybloom-navy-light {
+.bg-goldngoose-navy-light {
   background-color: var(--background-tertiary);
 }
 
-.border-polybloom-neon {
-  border-color: var(--polybloom-gold);
+.border-goldngoose-neon {
+  border-color: var(--goldngoose-gold);
 }
 
 /* Grid Layout Utilities */

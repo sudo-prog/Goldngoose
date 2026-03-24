@@ -45,7 +45,7 @@ interface LayoutStore {
   resetLayout: () => void;
 }
 
-const LAYOUT_STORAGE_KEY = "polybloom-layout";
+const LAYOUT_STORAGE_KEY = "goldngoose-layout";
 
 const DEFAULT_PANELS: Panel[] = [
   {

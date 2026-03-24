@@ -65,10 +65,10 @@ function SortablePanel({
         {...listeners}
         className="flex items-center justify-between gap-2 mb-3 cursor-grab"
       >
-        <h3 className="text-base font-semibold text-polybloom-gold font-display">
+        <h3 className="text-base font-semibold text-goldngoose-gold font-display">
           {panel.title}
         </h3>
-        <span className="text-xs text-polybloom-white-dim">drag</span>
+        <span className="text-xs text-goldngoose-white-dim">drag</span>
       </div>
       <ErrorBoundary>{children}</ErrorBoundary>
     </div>
@@ -158,7 +158,7 @@ export function PanelGrid() {
         {orderedPanels.map((panel) => (
           <div key={panel.id} className="panel">
             <div className="flex items-center justify-between gap-2 mb-3">
-              <h3 className="text-base font-semibold text-polybloom-gold font-display">
+              <h3 className="text-base font-semibold text-goldngoose-gold font-display">
                 {panel.title}
               </h3>
             </div>

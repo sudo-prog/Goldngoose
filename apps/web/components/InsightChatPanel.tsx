@@ -22,7 +22,7 @@ export function InsightChatPanel() {
     {
       id: "welcome",
       role: "assistant",
-      content: "👋 Welcome to PolyBloom AI Insights! I analyze market data, on-chain metrics, and trading patterns to give you actionable intelligence.\n\nTry asking:\n• \"What's the BTC sentiment?\"\n• \"Show me whale movements\"\n• \"Analyze ETH price action\"",
+      content: "👋 Welcome to goldngoose AI Insights! I analyze market data, on-chain metrics, and trading patterns to give you actionable intelligence.\n\nTry asking:\n• \"What's the BTC sentiment?\"\n• \"Show me whale movements\"\n• \"Analyze ETH price action\"",
       timestamp: new Date(),
     },
   ]);
@@ -82,7 +82,7 @@ export function InsightChatPanel() {
             key={msg.id}
             className={`p-3 rounded-lg ${
               msg.role === "user"
-                ? "bg-polybloom-neon/10 ml-8"
+                ? "bg-goldngoose-neon/10 ml-8"
                 : "bg-slate-800/50 mr-8"
             }`}
           >
@@ -103,7 +103,7 @@ export function InsightChatPanel() {
           <div className="bg-slate-800/50 p-3 rounded-lg mr-8">
             <div className="flex items-center gap-2">
               <span className="text-xs text-slate-500">🤖 AI</span>
-              <span className="text-xs text-polybloom-neon animate-pulse">
+              <span className="text-xs text-goldngoose-neon animate-pulse">
                 analyzing...
               </span>
             </div>
@@ -119,13 +119,13 @@ export function InsightChatPanel() {
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="Ask for market insights..."
-          className="flex-1 bg-slate-800/50 text-white text-sm rounded px-3 py-2 outline-none focus:ring-2 focus:ring-polybloom-neon"
+          className="flex-1 bg-slate-800/50 text-white text-sm rounded px-3 py-2 outline-none focus:ring-2 focus:ring-goldngoose-neon"
           disabled={isTyping}
         />
         <button
           onClick={handleSend}
           disabled={!input.trim() || isTyping}
-          className="px-4 py-2 bg-polybloom-neon/20 text-polybloom-neon rounded hover:bg-polybloom-neon/30 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-4 py-2 bg-goldngoose-neon/20 text-goldngoose-neon rounded hover:bg-goldngoose-neon/30 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Send
         </button>

@@ -1,7 +1,7 @@
 {
   "name": "mobile",
   "version": "0.1.0",
-  "description": "PolyBloom mobile app (iOS/Android via Expo)",
+  "description": "Goldngoose mobile app (iOS/Android via Expo)",
   "main": "index.js",
   "scripts": {
     "dev": "expo start",

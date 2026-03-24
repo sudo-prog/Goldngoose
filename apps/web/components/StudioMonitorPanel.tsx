@@ -160,9 +160,9 @@ export function StudioMonitorPanel() {
   return (
     <div className="space-y-4">
       {/* RAG_GOD Swarm Status */}
-      <div className="bg-slate-800/50 p-3 rounded border border-polybloom-neon/30">
+      <div className="bg-slate-800/50 p-3 rounded border border-goldngoose-neon/30">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-sm font-medium text-polybloom-neon">
+          <span className="text-sm font-medium text-goldngoose-neon">
             🧠 RAG_GOD Swarm
           </span>
           <span
@@ -178,7 +178,7 @@ export function StudioMonitorPanel() {
         <div className="grid grid-cols-3 gap-2 text-center">
           <div>
             <p className="text-xs text-slate-400">Mode</p>
-            <p className="text-lg font-bold text-polybloom-neon">
+            <p className="text-lg font-bold text-goldngoose-neon">
               {ragGodState?.mode ?? 0}
             </p>
           </div>
@@ -210,7 +210,7 @@ export function StudioMonitorPanel() {
               key={node.id}
               className={`flex items-center justify-between p-2 rounded text-xs ${
                 node.active
-                  ? "bg-polybloom-neon/10 border border-polybloom-neon/30"
+                  ? "bg-goldngoose-neon/10 border border-goldngoose-neon/30"
                   : "bg-slate-800/30"
               }`}
             >
@@ -251,7 +251,7 @@ export function StudioMonitorPanel() {
         </div>
         <div className="bg-slate-800/50 p-2 rounded text-center">
           <p className="text-xs text-slate-400">Findings</p>
-          <p className="text-lg font-bold text-polybloom-neon">{totalFindings}</p>
+          <p className="text-lg font-bold text-goldngoose-neon">{totalFindings}</p>
         </div>
       </div>
 
@@ -267,7 +267,7 @@ export function StudioMonitorPanel() {
               }
               className={`p-3 rounded cursor-pointer transition-colors ${
                 selectedAgent === agent.id
-                  ? "bg-polybloom-neon/20 border border-polybloom-neon/50"
+                  ? "bg-goldngoose-neon/20 border border-goldngoose-neon/50"
                   : "bg-slate-800/30 hover:bg-slate-800/50"
               }`}
             >
@@ -293,7 +293,7 @@ export function StudioMonitorPanel() {
                       ? "bg-green-400"
                       : agent.status === "error"
                         ? "bg-red-400"
-                        : "bg-polybloom-neon"
+                        : "bg-goldngoose-neon"
                   }`}
                   style={{ width: `${agent.progress}%` }}
                 />
@@ -312,7 +312,7 @@ export function StudioMonitorPanel() {
                       Last update: {agent.lastUpdate.toLocaleTimeString()}
                     </p>
                     <p className="mt-2">
-                      Agent ID: <code className="text-polybloom-neon">{agent.id}</code>
+                      Agent ID: <code className="text-goldngoose-neon">{agent.id}</code>
                     </p>
                   </div>
                 </div>
@@ -334,7 +334,7 @@ export function StudioMonitorPanel() {
               )
             );
           }}
-          className="flex-1 px-3 py-2 bg-polybloom-neon/20 text-polybloom-neon text-sm rounded hover:bg-polybloom-neon/30"
+          className="flex-1 px-3 py-2 bg-goldngoose-neon/20 text-goldngoose-neon text-sm rounded hover:bg-goldngoose-neon/30"
         >
           🚀 Start All Idle
         </button>

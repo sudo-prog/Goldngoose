@@ -1,12 +1,12 @@
-## PolyBloom SWAT Coordination Board
+## Goldngoose SWAT Coordination Board
 
-**Mission:** Build PolyBloom neon Bloomberg terminal for Polymarket  
+**Mission:** Build Goldngoose neon Bloomberg terminal for Polymarket  
 **Squad Status:** SPAWNED & ARMED  
 **Current Strike:** First draggable neon panel prototype  
 **Next Target:** MarketGhost live data feed  
 
 **Owner:** ELITE_CHIEF_OF_STAFF  
-**Repo:** `superpowerstudio/PolyBloom`
+**Repo:** `sudo-prog/Goldngoose`
 **Branch policy:** feature branches only, PRs into `main`, never push directly to `main`.
 
 ---
@@ -19,7 +19,7 @@
   - Define specialist personas and prompts.
 - **Phase 1 – Core Shell & Layout**
   - Turborepo skeleton, Next.js 15 App Router app, Expo 52 app.
-  - Shared UI kit (Tailwind + shadcn/ui + neon PolyBloom theme).
+  - Shared UI kit (Tailwind + shadcn/ui + neon Goldngoose theme).
   - Bloomberg-style multi-panel grid (drag, resize, save layouts).
 - **Phase 2 – Live Data & Integrations**
   - CoinGecko + Binance websockets, DefiLlama, Polymarket (Gamma + CLOB).

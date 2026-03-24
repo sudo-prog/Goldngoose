@@ -104,7 +104,7 @@ export function PolymarketTradingPanel() {
   return (
     <div className="space-y-4">
       {/* Header */}
-      <div className="panel border-2 border-polybloom-gold">
+      <div className="panel border-2 border-goldngoose-gold">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="neon-text text-xl">💹 Polymarket Trading</h2>
@@ -141,8 +141,8 @@ export function PolymarketTradingPanel() {
             onClick={() => setOrderType("limit")}
             className={`flex-1 py-2 rounded text-sm font-medium transition-colors ${
               orderType === "limit"
-                ? "bg-polybloom-gold text-black"
-                : "bg-polybloom-navy-mid text-slate-400 hover:text-white"
+                ? "bg-goldngoose-gold text-black"
+                : "bg-goldngoose-navy-mid text-slate-400 hover:text-white"
             }`}
           >
             Limit Order
@@ -151,8 +151,8 @@ export function PolymarketTradingPanel() {
             onClick={() => setOrderType("market")}
             className={`flex-1 py-2 rounded text-sm font-medium transition-colors ${
               orderType === "market"
-                ? "bg-polybloom-gold text-black"
-                : "bg-polybloom-navy-mid text-slate-400 hover:text-white"
+                ? "bg-goldngoose-gold text-black"
+                : "bg-goldngoose-navy-mid text-slate-400 hover:text-white"
             }`}
           >
             Market Order
@@ -166,7 +166,7 @@ export function PolymarketTradingPanel() {
             className={`flex-1 py-3 rounded text-sm font-bold transition-colors ${
               side === "buy"
                 ? "bg-green-600 text-white"
-                : "bg-polybloom-navy-mid text-slate-400 hover:text-green-400"
+                : "bg-goldngoose-navy-mid text-slate-400 hover:text-green-400"
             }`}
           >
             📈 BUY (Yes)
@@ -176,7 +176,7 @@ export function PolymarketTradingPanel() {
             className={`flex-1 py-3 rounded text-sm font-bold transition-colors ${
               side === "sell"
                 ? "bg-red-600 text-white"
-                : "bg-polybloom-navy-mid text-slate-400 hover:text-red-400"
+                : "bg-goldngoose-navy-mid text-slate-400 hover:text-red-400"
             }`}
           >
             📉 SELL (No)
@@ -226,7 +226,7 @@ export function PolymarketTradingPanel() {
                 min="0"
                 max="100"
                 step="0.1"
-                className="w-full bg-polybloom-navy-mid text-white p-3 rounded border border-polybloom-gold/20 font-mono text-lg"
+                className="w-full bg-goldngoose-navy-mid text-white p-3 rounded border border-goldngoose-gold/20 font-mono text-lg"
               />
               <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">
                 ¢
@@ -252,7 +252,7 @@ export function PolymarketTradingPanel() {
               placeholder={orderType === "limit" ? "10" : "5.00"}
               min="0"
               step={orderType === "limit" ? "1" : "0.01"}
-              className="w-full bg-polybloom-navy-mid text-white p-3 rounded border border-polybloom-gold/20 font-mono text-lg"
+              className="w-full bg-goldngoose-navy-mid text-white p-3 rounded border border-goldngoose-gold/20 font-mono text-lg"
             />
             <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">
               {orderType === "limit" ? "shares" : "$"}
@@ -262,7 +262,7 @@ export function PolymarketTradingPanel() {
 
         {/* Order Summary */}
         {estimatedTotal > 0 && (
-          <div className="bg-polybloom-navy-mid/50 p-3 rounded">
+          <div className="bg-goldngoose-navy-mid/50 p-3 rounded">
             <div className="flex justify-between text-xs text-slate-400">
               <span>Estimated Total</span>
               <span className="text-white font-mono">
@@ -319,7 +319,7 @@ export function PolymarketTradingPanel() {
       {showConfirmation && (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
           <div className="panel max-w-md w-full mx-4 space-y-4">
-            <h3 className="text-xl font-bold text-polybloom-gold">
+            <h3 className="text-xl font-bold text-goldngoose-gold">
               ⚠️ Confirm Order
             </h3>
 
@@ -407,7 +407,7 @@ export function PolymarketTradingPanel() {
             {openOrders.map((order) => (
               <div
                 key={order.id}
-                className="flex items-center justify-between text-xs bg-polybloom-navy-mid/50 p-2 rounded"
+                className="flex items-center justify-between text-xs bg-goldngoose-navy-mid/50 p-2 rounded"
               >
                 <div>
                   <span

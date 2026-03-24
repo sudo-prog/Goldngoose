@@ -1,4 +1,4 @@
-# PolyBloom — The Bespoke Ledger
+# Goldngoose — The Bespoke Ledger
 ## Development Progress Report
 
 **Last Updated:** March 21, 2026, 1:00 AM AEST

@@ -7,7 +7,7 @@ export default function App() {
       <SafeAreaView style={styles.container}>
         <StatusBar barStyle="light-content" backgroundColor="#0a0a0a" />
         <View style={styles.header}>
-          <Text style={styles.title}>PolyBloom Terminal</Text>
+          <Text style={styles.title}>Goldngoose Terminal</Text>
           <Text style={styles.subtitle}>Crypto Bloomberg Terminal</Text>
         </View>
 

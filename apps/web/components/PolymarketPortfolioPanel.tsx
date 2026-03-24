@@ -52,7 +52,7 @@ export function PolymarketPortfolioPanel() {
   return (
     <div className="space-y-4">
       {/* Header */}
-      <div className="panel border-2 border-polybloom-neon">
+      <div className="panel border-2 border-goldngoose-neon">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="neon-glow text-xl">💼 Polymarket Portfolio</h2>
@@ -115,7 +115,7 @@ export function PolymarketPortfolioPanel() {
               value={walletAddress}
               onChange={(e) => setWalletAddress(e.target.value)}
               placeholder="0x..."
-              className="flex-1 bg-polybloom-navy-mid text-white p-2 rounded border border-polybloom-gold/20 font-mono text-xs"
+              className="flex-1 bg-goldngoose-navy-mid text-white p-2 rounded border border-goldngoose-gold/20 font-mono text-xs"
             />
             <Button
               onClick={() => {
@@ -137,8 +137,8 @@ export function PolymarketPortfolioPanel() {
           onClick={() => setActiveTab("positions")}
           className={`flex-1 py-2 rounded text-sm font-medium transition-colors ${
             activeTab === "positions"
-              ? "bg-polybloom-gold text-black"
-              : "bg-polybloom-navy-mid text-slate-400 hover:text-white"
+              ? "bg-goldngoose-gold text-black"
+              : "bg-goldngoose-navy-mid text-slate-400 hover:text-white"
           }`}
         >
           📊 Positions
@@ -147,8 +147,8 @@ export function PolymarketPortfolioPanel() {
           onClick={() => setActiveTab("history")}
           className={`flex-1 py-2 rounded text-sm font-medium transition-colors ${
             activeTab === "history"
-              ? "bg-polybloom-gold text-black"
-              : "bg-polybloom-navy-mid text-slate-400 hover:text-white"
+              ? "bg-goldngoose-gold text-black"
+              : "bg-goldngoose-navy-mid text-slate-400 hover:text-white"
           }`}
         >
           📜 History
@@ -170,7 +170,7 @@ export function PolymarketPortfolioPanel() {
               {positions.map((position, index) => (
                 <div
                   key={index}
-                  className="bg-polybloom-navy-mid/50 p-3 rounded"
+                  className="bg-goldngoose-navy-mid/50 p-3 rounded"
                 >
                   <div className="flex items-center justify-between">
                     <div>
@@ -220,7 +220,7 @@ export function PolymarketPortfolioPanel() {
               {tradeHistory.map((trade, index) => (
                 <div
                   key={index}
-                  className="bg-polybloom-navy-mid/50 p-3 rounded flex items-center justify-between"
+                  className="bg-goldngoose-navy-mid/50 p-3 rounded flex items-center justify-between"
                 >
                   <div>
                     <div className="flex items-center gap-2">
@@ -265,7 +265,7 @@ export function PolymarketPortfolioPanel() {
       )}
 
       {/* Performance Chart Placeholder */}
-      <div className="panel bg-polybloom-navy-mid/30">
+      <div className="panel bg-goldngoose-navy-mid/30">
         <h3 className="text-sm font-semibold text-slate-400 mb-3">
           📈 Performance
         </h3>

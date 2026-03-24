@@ -229,14 +229,14 @@ export function TerminalDashboard() {
   };
 
   return (
-    <div className="min-h-screen p-4 space-y-4 bg-polybloom-dark">
+    <div className="min-h-screen p-4 space-y-4 bg-goldngoose-dark">
       {/* Header */}
-      <div className="p-4 bg-polybloom-navy-mid" style={{ borderBottom: '1px solid var(--border-primary)' }}>
+      <div className="p-4 bg-goldngoose-navy-mid" style={{ borderBottom: '1px solid var(--border-primary)' }}>
         <div className="flex items-center justify-between">
           <div>
             <a
               href="/"
-              className="font-mono text-polybloom-white-dim"
+              className="font-mono text-goldngoose-white-dim"
               style={{
                 fontSize: '0.75rem',
                 display: 'inline-block',
@@ -253,10 +253,10 @@ export function TerminalDashboard() {
                 fontWeight: 400,
               }}
             >
-              PolyBloom Terminal
+              goldngoose Terminal
             </h1>
             <p
-              className="font-body text-polybloom-white"
+              className="font-body text-goldngoose-white"
               style={{
                 fontSize: '0.875rem',
                 marginTop: '0.25rem',
@@ -267,7 +267,7 @@ export function TerminalDashboard() {
           </div>
           <div className="flex gap-2">
             <button
-              className="text-polybloom-white"
+              className="text-goldngoose-white"
               style={{
                 ...buttonStyle,
                 backgroundColor: 'transparent',
@@ -279,7 +279,7 @@ export function TerminalDashboard() {
               🔄 Refresh
             </button>
             <button
-              className="text-polybloom-white"
+              className="text-goldngoose-white"
               style={{
                 ...buttonStyle,
                 backgroundColor: 'transparent',
@@ -291,11 +291,11 @@ export function TerminalDashboard() {
               ⚙️ Status
             </button>
             <button
-              className={globalKillSwitch ? "text-polybloom-white" : "text-polybloom-red"}
+              className={globalKillSwitch ? "text-goldngoose-white" : "text-goldngoose-red"}
               style={{
                 ...buttonStyle,
-                backgroundColor: globalKillSwitch ? 'var(--polybloom-red)' : 'transparent',
-                border: `1px solid ${globalKillSwitch ? 'var(--polybloom-red)' : 'var(--border-primary)'}`,
+                backgroundColor: globalKillSwitch ? 'var(--goldngoose-red)' : 'transparent',
+                border: `1px solid ${globalKillSwitch ? 'var(--goldngoose-red)' : 'var(--border-primary)'}`,
               }}
               type="button"
               onClick={() => executeCommand("kill")}
@@ -310,9 +310,9 @@ export function TerminalDashboard() {
       <PanelGrid />
 
       {/* Bottom - Command Bar */}
-      <div className="p-4 bg-polybloom-navy-mid" style={{ borderTop: '1px solid var(--border-primary)' }}>
+      <div className="p-4 bg-goldngoose-navy-mid" style={{ borderTop: '1px solid var(--border-primary)' }}>
         <p
-          className="font-mono text-polybloom-gold"
+          className="font-mono text-goldngoose-gold"
           style={{
             fontSize: '0.625rem',
             textTransform: 'uppercase',
@@ -326,13 +326,13 @@ export function TerminalDashboard() {
         {/* Command Output */}
         {commandOutput.length > 0 && (
           <div
-            className="p-3 mb-3 max-h-40 overflow-y-auto bg-polybloom-dark"
+            className="p-3 mb-3 max-h-40 overflow-y-auto bg-goldngoose-dark"
             style={{ borderRadius: '0.125rem' }}
           >
             {commandOutput.map((line, i) => (
               <div
                 key={i}
-                className={`font-mono text-sm ${line.startsWith(">") ? "text-polybloom-gold" : "text-polybloom-white"}`}
+                className={`font-mono text-sm ${line.startsWith(">") ? "text-goldngoose-gold" : "text-goldngoose-white"}`}
                 style={{
                   whiteSpace: 'pre-wrap',
                 }}
@@ -350,7 +350,7 @@ export function TerminalDashboard() {
           onChange={(e) => setCommandInput(e.target.value)}
           onKeyDown={handleKeyDown}
           placeholder="> Type a command (e.g., 'add panel markets', 'list bots', 'help')"
-          className="w-full outline-none px-2 py-1 font-mono text-sm text-polybloom-white"
+          className="w-full outline-none px-2 py-1 font-mono text-sm text-goldngoose-white"
           style={{
             backgroundColor: 'transparent',
             borderRadius: '0.125rem',
@@ -361,12 +361,12 @@ export function TerminalDashboard() {
       {/* Footer */}
       <div className="text-center py-4" style={{ borderTop: '1px solid var(--border-primary)' }}>
         <p
-          className="font-mono text-polybloom-white-dim"
+          className="font-mono text-goldngoose-white-dim"
           style={{
             fontSize: '0.625rem',
           }}
         >
-          PolyBloom Terminal v0.2 | {statusText} | The Bespoke Ledger
+          goldngoose Terminal v0.2 | {statusText} | The Bespoke Ledger
         </p>
       </div>
     </div>

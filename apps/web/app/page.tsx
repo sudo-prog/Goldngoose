@@ -13,12 +13,12 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-polybloom-dark">
+    <div className="min-h-screen flex flex-col bg-goldngoose-dark">
       {/* Forensic Dot Grid */}
       <div
         className="absolute inset-0 opacity-5"
         style={{
-          backgroundImage: "radial-gradient(circle, var(--polybloom-gold) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(circle, var(--goldngoose-gold) 1px, transparent 1px)",
           backgroundSize: "24px 24px",
         }}
       />
@@ -27,7 +27,7 @@ export default function Home() {
       <div className="flex-1 flex flex-col items-center justify-center px-4 relative z-10">
         <div className="text-center mb-12">
           <p
-            className="font-mono text-polybloom-white-dim"
+            className="font-mono text-goldngoose-white-dim"
             style={{
               fontSize: '0.75rem',
               textTransform: 'uppercase',
@@ -47,10 +47,10 @@ export default function Home() {
               marginBottom: '1rem',
             }}
           >
-            PolyBloom
+            goldngoose
           </h1>
           <p
-            className="font-body text-polybloom-white"
+            className="font-body text-goldngoose-white"
             style={{
               fontSize: '1.125rem',
               maxWidth: '500px',
@@ -67,7 +67,7 @@ export default function Home() {
           {features.map((f, i) => (
             <div
               key={i}
-              className="p-4 bg-polybloom-navy-mid"
+              className="p-4 bg-goldngoose-navy-mid"
               style={{
                 border: '1px solid var(--border-primary)',
                 borderRadius: '0.125rem',
@@ -76,7 +76,7 @@ export default function Home() {
               <div className="flex items-center gap-2 mb-2">
                 <span style={{ fontSize: '1.25rem' }}>{f.icon}</span>
                 <h3
-                  className="font-mono text-polybloom-gold"
+                  className="font-mono text-goldngoose-gold"
                   style={{
                     fontSize: '0.75rem',
                     textTransform: 'uppercase',
@@ -87,7 +87,7 @@ export default function Home() {
                 </h3>
               </div>
               <p
-                className="font-body text-polybloom-white"
+                className="font-body text-goldngoose-white"
                 style={{
                   fontSize: '0.875rem',
                   lineHeight: 1.5,
@@ -103,7 +103,7 @@ export default function Home() {
         <div className="flex gap-4">
           <Link
             href="/terminal"
-            className="px-8 py-3 transition-colors font-mono bg-polybloom-gold text-polybloom-dark"
+            className="px-8 py-3 transition-colors font-mono bg-goldngoose-gold text-goldngoose-dark"
             style={{
               fontSize: '0.75rem',
               textTransform: 'uppercase',
@@ -115,7 +115,7 @@ export default function Home() {
           </Link>
           <Link
             href="/polymarket"
-            className="px-8 py-3 transition-colors font-mono text-polybloom-gold border-polybloom-neon"
+            className="px-8 py-3 transition-colors font-mono text-goldngoose-gold border-goldngoose-neon"
             style={{
               fontSize: '0.75rem',
               textTransform: 'uppercase',
@@ -138,7 +138,7 @@ export default function Home() {
             <Link
               key={link.href}
               href={link.href}
-              className="font-mono text-polybloom-white-dim"
+              className="font-mono text-goldngoose-white-dim"
               style={{
                 fontSize: '0.75rem',
                 textTransform: 'uppercase',
@@ -157,7 +157,7 @@ export default function Home() {
         style={{ borderTop: '1px solid var(--border-primary)' }}
       >
         <p
-          className="font-mono text-polybloom-white-dim"
+          className="font-mono text-goldngoose-white-dim"
           style={{
             fontSize: '0.625rem',
             textTransform: 'uppercase',

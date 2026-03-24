@@ -39,7 +39,7 @@ export function PolymarketOrderBookPanel() {
   return (
     <div className="space-y-4">
       {/* Header */}
-      <div className="panel border-2 border-polybloom-neon">
+      <div className="panel border-2 border-goldngoose-neon">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="neon-glow text-xl">📊 Polymarket Order Book</h2>
@@ -61,7 +61,7 @@ export function PolymarketOrderBookPanel() {
         <select
           value={selectedMarket}
           onChange={(e) => handleMarketSelect(e.target.value)}
-          className="w-full bg-polybloom-navy-mid text-white p-2 rounded border border-polybloom-gold/20"
+          className="w-full bg-goldngoose-navy-mid text-white p-2 rounded border border-goldngoose-gold/20"
         >
           <option value="">-- Select a market --</option>
           {markets.map((market) => (
@@ -183,7 +183,7 @@ export function PolymarketOrderBookPanel() {
 
       {/* Spread Info */}
       {orderBook && (
-        <div className="panel bg-polybloom-navy-mid/50">
+        <div className="panel bg-goldngoose-navy-mid/50">
           <div className="grid grid-cols-3 gap-4 text-center text-xs">
             <div>
               <p className="text-slate-400">Best Bid</p>

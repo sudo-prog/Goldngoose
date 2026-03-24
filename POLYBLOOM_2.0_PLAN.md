@@ -1,4 +1,4 @@
-# PolyBloom Terminal 2.0 — Ultimate Polymarket + Crypto Bloomberg Death Squad Edition
+# Goldngoose Terminal 2.0 — Ultimate Polymarket + Crypto Bloomberg Death Squad Edition
 
 **Version:** 2.0  
 **Status:** v0.1 bootstrap complete → 2.0 execution starts now  
@@ -38,7 +38,7 @@ Apply: Bloomberg Terminal Clone
 
 ### Orchestration Layer
 
-Apply: PolyBloom Death Squad
+Apply: Goldngoose Death Squad
 
 - **BR(A.I.)NS** — Supreme Commander
 - **NeonBlade** — Design & UI Systems
@@ -242,8 +242,8 @@ import { PolybasedSDK } from "@polybased/sdk";
 - Docker Compose
   - postgres (market data cache)
   - redis (real-time pub/sub)
-  - polybloom-frontend (Next.js)
-  - polybloom-api (Go/Node bridge)
+  - goldngoose-frontend (Next.js)
+  - goldngoose-api (Go/Node bridge)
   - openbb-server (data analytics)
 
 **Privacy Features:**
@@ -415,7 +415,7 @@ import { PolybasedSDK } from "@polybased/sdk";
 - [x] AGENTS.md - Squad structure & protocols
 - [x] SQUAD_DIAGRAM.md - Architecture diagram
 - [x] LIGHTNING_STRIKE_PLAN.md - First 24h plan
-- [ ] POLYBLOOM_2.0_PLAN.md - This document
+- [ ] GOLDNGOOSE_2.0_PLAN.md - This document
 - [ ] API_CONTRACTS.md - Data schemas + endpoints
 - [ ] DESIGN_SYSTEM.md - Component library guide
 - [ ] OPERATIONS.md - Deployment + troubleshooting

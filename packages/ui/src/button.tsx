@@ -8,7 +8,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 const variantClasses: Record<NonNullable<ButtonProps["variant"]>, string> = {
   default:
-    "bg-polybloom-neon text-polybloom-dark hover:bg-polybloom-neon/90 font-semibold",
+    "bg-goldngoose-neon text-goldngoose-dark hover:bg-goldngoose-neon/90 font-semibold",
   outline:
     "border border-slate-700 bg-transparent hover:bg-slate-800 text-white",
   ghost: "hover:bg-slate-800 text-white",
@@ -27,7 +27,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "default", size = "default", ...props }, ref) => (
     <button
       className={cn(
-        "inline-flex items-center justify-center rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-polybloom-neon disabled:opacity-50 disabled:cursor-not-allowed",
+        "inline-flex items-center justify-center rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-goldngoose-neon disabled:opacity-50 disabled:cursor-not-allowed",
         variantClasses[variant],
         sizeClasses[size],
         className,

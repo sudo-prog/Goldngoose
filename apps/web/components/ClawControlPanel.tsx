@@ -16,7 +16,7 @@ export function ClawControlPanel() {
   return (
     <div className="space-y-4">
       {/* Safety Header */}
-      <div className="panel border-2 border-polybloom-neon">
+      <div className="panel border-2 border-goldngoose-neon">
         <div className="flex items-center justify-between">
           <div>
             <h2 className="neon-glow text-xl">🤖 Claw Control</h2>

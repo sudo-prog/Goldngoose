@@ -125,7 +125,7 @@ export function ReplayPanel() {
             setIsPlaying(false);
             setCurrentIndex(parseInt(e.target.value));
           }}
-          className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-polybloom-neon"
+          className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-goldngoose-neon"
         />
         <div className="text-center text-sm text-slate-400">
           Event {currentIndex + 1} of {MOCK_EVENTS.length}
@@ -145,7 +145,7 @@ export function ReplayPanel() {
         </button>
         <button
           onClick={handlePlay}
-          className="px-4 py-1 bg-polybloom-neon/20 text-polybloom-neon rounded hover:bg-polybloom-neon/30"
+          className="px-4 py-1 bg-goldngoose-neon/20 text-goldngoose-neon rounded hover:bg-goldngoose-neon/30"
         >
           {isPlaying ? "⏸️ Pause" : "▶️ Play"}
         </button>
@@ -191,7 +191,7 @@ export function ReplayPanel() {
             key={index}
             className={`p-2 rounded text-xs ${
               index === currentIndex
-                ? "bg-polybloom-neon/20 border border-polybloom-neon/50"
+                ? "bg-goldngoose-neon/20 border border-goldngoose-neon/50"
                 : "bg-slate-800/30"
             }`}
           >

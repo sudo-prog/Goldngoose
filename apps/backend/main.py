@@ -1,5 +1,5 @@
 """
-RAG_GOD Backend - FastAPI service for PolyBloom/Goldngoose
+RAG_GOD Backend - FastAPI service for Goldngoose
 Provides API endpoints and WebSocket streaming for the trading terminal
 """
 

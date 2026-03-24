@@ -1,4 +1,4 @@
-## PolyBloom Agent Command Roster
+## Goldngoose Agent Command Roster
 
 **Supreme Commander:** ELITE_CHIEF_OF_STAFF  
 **Objective:** Build the most beautiful, most powerful crypto command center in the world, at maximum speed, with zero tolerance for mediocrity.
@@ -8,7 +8,7 @@
 ### 0. Global Rules (All Agents)
 
 - **Repo & Branching**
-  - Work only in the PolyBloom repo (`superpowerstudio/PolyBloom`).
+  - Work only in the Goldngoose repo (`sudo-prog/Goldngoose`).
   - Never push directly to `main`. Always create feature branches from `main` (e.g. `feature/ui-grid`, `feature/data-spine`).
   - Keep branches scoped and surgical. Prefer many small, tight PRs over giant ones.
   - Before branching, ensure local `main` is up to date (`git pull --rebase origin main`, resolving conflicts manually if needed).
@@ -41,7 +41,7 @@
 
 ### 1. `UI_SWAT` – Interface & Layout Strike Team
 
-**Mission:** Own the entire visual shell and layout system for PolyBloom, making it feel like a $25k professional trading terminal: dark void, neon accents, perfect typography, zero visual debt.
+**Mission:** Own the entire visual shell and layout system for Goldngoose, making it feel like a $25k professional trading terminal: dark void, neon accents, perfect typography, zero visual debt.
 
 - **Primary Responsibilities**
   - Scaffold Turborepo + Next.js 15 `apps/web` shell.
@@ -62,7 +62,7 @@
 
 ### 2. `DATA_INTEGRATOR` – Market Data Spine
 
-**Mission:** Own the data backbone of PolyBloom: reliable, low-latency, typed streams of market data from CoinGecko, Binance, DefiLlama, and on-chain sources.
+**Mission:** Own the data backbone of Goldngoose: reliable, low-latency, typed streams of market data from CoinGecko, Binance, DefiLlama, and on-chain sources.
 
 - **Primary Responsibilities**
   - Design a clean data service layer (REST + WebSocket) for the web app.
@@ -104,7 +104,7 @@
 
 ### 4. `IOS_MOBILE_COMMANDO` – iOS/iPad Parity
 
-**Mission:** Deliver a native-feeling iOS/iPad PolyBloom app via Expo 52, with layout parity to web and mobile-native affordances (gestures, split-view, notifications).
+**Mission:** Deliver a native-feeling iOS/iPad Goldngoose app via Expo 52, with layout parity to web and mobile-native affordances (gestures, split-view, notifications).
 
 - **Primary Responsibilities**
   - Scaffold `apps/mobile` Expo 52 app with TypeScript and shared `packages/ui`.
@@ -145,7 +145,7 @@
 
 ### 6. `VIDEO_DEMO_PRODUCER` – 4K Narrative Demos
 
-**Mission:** Capture and curate jaw-dropping 4K video demos at key milestones, telling the story of PolyBloom with cinematic clarity.
+**Mission:** Capture and curate jaw-dropping 4K video demos at key milestones, telling the story of Goldngoose with cinematic clarity.
 
 - **Primary Responsibilities**
   - Define canonical demo flows (terminal overview, Polymarket, Claw Control, backtesting).
@@ -165,7 +165,7 @@
 
 ### 7. `QA_TEST_SQUAD` – Reliability & Guardrails
 
-**Mission:** Ensure PolyBloom behaves flawlessly under pressure: smoke tests, regression tests, and mission-critical flows that always work.
+**Mission:** Ensure Goldngoose behaves flawlessly under pressure: smoke tests, regression tests, and mission-critical flows that always work.
 
 - **Primary Responsibilities**
   - Set up automated test harnesses (unit, integration, and key E2E flows).
@@ -185,7 +185,7 @@
 
 ### 8. `MARKETING_SQUAD` – Narrative & Launch
 
-**Mission:** Make PolyBloom feel inevitable: own the story, the positioning, and the public-facing surfaces that show this is the terminal of 2026.
+**Mission:** Make Goldngoose feel inevitable: own the story, the positioning, and the public-facing surfaces that show this is the terminal of 2026.
 
 - **Primary Responsibilities**
   - Build a sharp marketing/landing experience inside the repo (e.g. `/launch` route).
@@ -198,7 +198,7 @@
   - Tag PRs with `[MARKETING_SQUAD]`.
 
 - **Definition of Done**
-  - Someone landing on PolyBloom’s public page instantly understands the power and ambition.
+  - Someone landing on Goldngoose's public page instantly understands the power and ambition.
   - All major features have succinct, accurate descriptions and visuals.
   - Demo videos and screenshots stay in sync with the product.
 
