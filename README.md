@@ -5,6 +5,22 @@
 **The most beautiful Bloomberg-style terminal for Polymarket + Crypto.**
 Built with Next.js 15, Expo 52, TypeScript, and the Bespoke Ledger design system.
 
+---
+
+### 📌 Repository Status
+**As of March 24, 2026:** This is now the unified monorepo containing:
+- ✅ **Frontend**: PolyBloom terminal & mobile app (from `polybloom` repo)
+- ✅ **Backend**: RAG God AI agent system (from `RAG_GOD` repo)
+- ✅ **Infrastructure**: Docker, CI/CD, monorepo tooling
+
+**Deprecated repos** (merged into Goldngoose):
+- `sudo-prog/polybloom` → archived ✓
+- `sudo-prog/RAG_GOD` → archived ✓
+
+See `COORDINATION_BOARD.md` for execution status and `AGENTS.md` for squad assignments.
+
+---
+
 ## Features
 - 📊 Live crypto market data (CoinGecko + Binance WebSocket)
 - 🎰 Polymarket intelligence — real-time prediction markets
