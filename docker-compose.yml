@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  # RAG_GOD Backend Service
+  backend:
+    build:
+      context: .
+      dockerfile: apps/backend/Dockerfile
+    container_name: rag-god-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./apps/rag_god:/app/apps/rag_god
+      - ./apps/backend:/app/apps/backend
+    environment:
+      - RAG_GOD_MODE=0
+      - PAPER_MODE=true
+      - PYTHONUNBUFFERED=1
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+
+  # Next.js Web Frontend
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    container_name: goldngoose-web
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_RAG_GOD_URL=http://backend:8000
+      - NODE_ENV=production
+    env_file:
+      - .env
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+  # Optional: Redis for caching (uncomment if needed)
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: rag-god-redis
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - redis-data:/data
+  #   restart: unless-stopped
+
+  # Optional: PostgreSQL for persistence (uncomment if needed)
+  # postgres:
+  #   image: postgres:16-alpine
+  #   container_name: rag-god-postgres
+  #   ports:
+  #     - "5432:5432"
+  #   environment:
+  #     - POSTGRES_USER=rag_god
+  #     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-changeme}
+  #     - POSTGRES_DB=rag_god
+  #   volumes:
+  #     - postgres-data:/var/lib/postgresql/data
+  #   restart: unless-stopped
+
+volumes:
+  # redis-data:
+  # postgres-data:

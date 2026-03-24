@@ -1,10 +1,12 @@
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useEffect } from "react";
 import { useBotStore } from "@/lib/stores/botStore";
 import { useLayoutStore } from "@/lib/stores/layoutStore";
 import { useMarketsStore } from "@/lib/stores/marketsStore";
 import { PanelGrid } from "@/components/PanelGrid";
+import { useRAGGodWS } from "@/hooks/useRAGGodWS";
+import { getStatus, switchMode } from "@/lib/api/ragGod";
 
 export function TerminalDashboard() {
   const { paperMode, globalKillSwitch, toggleGlobalKillSwitch, bots, emergencyLiquidate } = useBotStore();
@@ -12,15 +14,40 @@ export function TerminalDashboard() {
   const [commandInput, setCommandInput] = useState("");
   const [commandOutput, setCommandOutput] = useState<string[]>([]);
 
+  // RAG_GOD WebSocket integration
+  const { state: ragGodState, connected: wsConnected } = useRAGGodWS();
+  const [ragGodMode, setRagGodMode] = useState(0);
+
   const statusText = useMemo(() => {
     const mode = paperMode ? "Paper" : "Live";
     const killSwitch = globalKillSwitch ? " (KILL SWITCH ACTIVE)" : "";
-    return `${mode} Trading Mode${killSwitch}`;
-  }, [paperMode, globalKillSwitch]);
+    const ragGodStatus = wsConnected ? ` | RAG_GOD: Mode ${ragGodMode}` : " | RAG_GOD: Disconnected";
+    return `${mode} Trading Mode${killSwitch}${ragGodStatus}`;
+  }, [paperMode, globalKillSwitch, wsConnected, ragGodMode]);
+
+  // Update RAG_GOD mode from WebSocket state
+  useEffect(() => {
+    if (ragGodState) {
+      setRagGodMode(ragGodState.mode);
+    }
+  }, [ragGodState]);
 
   const { fetchTopMarkets } = useMarketsStore();
 
-  const executeCommand = useCallback((cmd: string) => {
+  // Fetch initial RAG_GOD status
+  useEffect(() => {
+    const fetchRAGGodStatus = async () => {
+      try {
+        const status = await getStatus();
+        setRagGodMode(status.mode);
+      } catch (error) {
+        console.error("Failed to fetch RAG_GOD status:", error);
+      }
+    };
+    fetchRAGGodStatus();
+  }, []);
+
+  const executeCommand = useCallback(async (cmd: string) => {
     const parts = cmd.trim().toLowerCase().split(" ");
     const command = parts[0];
     const args = parts.slice(1);
@@ -72,6 +99,35 @@ export function TerminalDashboard() {
         break;
       case "backtest":
         output = "⏮️ Triggering new backtest...";
+        break;
+
+      case "rag-god":
+      case "rg":
+        if (args[0] === "mode" && args[1]) {
+          const newMode = parseInt(args[1]);
+          if (newMode >= 0 && newMode <= 3) {
+            try {
+              const result = await switchMode(newMode);
+              setRagGodMode(newMode);
+              output = `🧠 RAG_GOD mode switched to ${newMode}: ${result.description}`;
+            } catch (error) {
+              output = `❌ Failed to switch RAG_GOD mode: ${error}`;
+            }
+          } else {
+            output = "❌ RAG_GOD mode must be 0-3";
+          }
+        } else if (args[0] === "status") {
+          output = `🧠 RAG_GOD Status:
+  - Mode: ${ragGodMode} ${ragGodState?.mode_description ?? ""}
+  - Paper PnL: $${(ragGodState?.paper_pnl ?? 0).toFixed(4)}
+  - Whale Alert: ${ragGodState?.whale_alert ?? "None"}
+  - WebSocket: ${wsConnected ? "Connected ✅" : "Disconnected ❌"}`;
+        } else {
+          output = `🧠 RAG_GOD Commands:
+  - rag-god mode <0-3>  Switch RAG_GOD mode
+  - rag-god status       Show RAG_GOD status
+  - rg mode <0-3>        Short form`;
+        }
         break;
       case "add":
         if (args[0] === "panel" && args[1]) {
@@ -137,11 +193,15 @@ export function TerminalDashboard() {
       case "status":
         const runningBots = bots.filter(b => b.status === "running").length;
         const totalPnl = bots.reduce((sum, b) => sum + b.pnl, 0);
+        const ragGodPnl = ragGodState?.paper_pnl ?? 0;
         output = `📊 System Status:
   - Mode: ${paperMode ? "Paper" : "Live"} Trading
   - Kill Switch: ${globalKillSwitch ? "ACTIVE ❌" : "INACTIVE ✅"}
   - Running Bots: ${runningBots}/${bots.length}
-  - Total PnL: $${totalPnl.toFixed(2)}`;
+  - Total PnL: $${totalPnl.toFixed(2)}
+  - RAG_GOD Mode: ${ragGodMode} ${ragGodState?.mode_description ?? ""}
+  - RAG_GOD Paper PnL: $${ragGodPnl.toFixed(4)}
+  - WebSocket: ${wsConnected ? "Connected ✅" : "Disconnected ❌"}`;
         break;
 
       default:
@@ -174,10 +234,10 @@ export function TerminalDashboard() {
       <div className="p-4 bg-polybloom-navy-mid" style={{ borderBottom: '1px solid var(--border-primary)' }}>
         <div className="flex items-center justify-between">
           <div>
-            <a 
-              href="/" 
+            <a
+              href="/"
               className="font-mono text-polybloom-white-dim"
-              style={{ 
+              style={{
                 fontSize: '0.75rem',
                 display: 'inline-block',
                 marginBottom: '0.5rem',
@@ -185,9 +245,9 @@ export function TerminalDashboard() {
             >
               ← Home
             </a>
-            <h1 
+            <h1
               className="font-display neon-glow"
-              style={{ 
+              style={{
                 fontStyle: 'italic',
                 fontSize: '2rem',
                 fontWeight: 400,
@@ -195,9 +255,9 @@ export function TerminalDashboard() {
             >
               PolyBloom Terminal
             </h1>
-            <p 
+            <p
               className="font-body text-polybloom-white"
-              style={{ 
+              style={{
                 fontSize: '0.875rem',
                 marginTop: '0.25rem',
               }}
@@ -251,9 +311,9 @@ export function TerminalDashboard() {
 
       {/* Bottom - Command Bar */}
       <div className="p-4 bg-polybloom-navy-mid" style={{ borderTop: '1px solid var(--border-primary)' }}>
-        <p 
+        <p
           className="font-mono text-polybloom-gold"
-          style={{ 
+          style={{
             fontSize: '0.625rem',
             textTransform: 'uppercase',
             letterSpacing: '0.1em',
@@ -262,18 +322,18 @@ export function TerminalDashboard() {
         >
           💬 Command Bar
         </p>
-        
+
         {/* Command Output */}
         {commandOutput.length > 0 && (
-          <div 
+          <div
             className="p-3 mb-3 max-h-40 overflow-y-auto bg-polybloom-dark"
             style={{ borderRadius: '0.125rem' }}
           >
             {commandOutput.map((line, i) => (
-              <div 
-                key={i} 
+              <div
+                key={i}
                 className={`font-mono text-sm ${line.startsWith(">") ? "text-polybloom-gold" : "text-polybloom-white"}`}
-                style={{ 
+                style={{
                   whiteSpace: 'pre-wrap',
                 }}
               >
@@ -282,7 +342,7 @@ export function TerminalDashboard() {
             ))}
           </div>
         )}
-        
+
         {/* Command Input */}
         <input
           type="text"

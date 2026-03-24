@@ -35,6 +35,7 @@ export function Button({
   };
   return (
     <button
+      type="button"
       onClick={onClick}
       disabled={disabled}
       className={`${base} ${variants[variant]} ${sizes[size]} ${className ?? ""}`}

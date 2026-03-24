@@ -1,7 +1,7 @@
 {
-  "name": "polybloom",
+  "name": "goldngoose",
   "version": "0.1.0",
-  "description": "PolyBloom - Ultimate Crypto Bloomberg Terminal + AI Trading Studio",
+  "description": "Goldngoose - Ultimate Crypto Bloomberg Terminal + AI Trading Studio",
   "private": true,
   "packageManager": "npm@10.9.0",
   "workspaces": [
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/superpowerstudio/PolyBloom.git"
+    "url": "git+https://github.com/sudo-prog/Goldngoose.git"
   },
   "keywords": [
     "crypto",
@@ -27,12 +27,12 @@
     "polymarket",
     "terminal"
   ],
-  "author": "PolyBloom Team",
+  "author": "Goldngoose Team",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/superpowerstudio/PolyBloom/issues"
+    "url": "https://github.com/sudo-prog/Goldngoose/issues"
   },
-  "homepage": "https://github.com/superpowerstudio/PolyBloom#readme",
+  "homepage": "https://github.com/sudo-prog/Goldngoose#readme",
   "devDependencies": {
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.8",
@@ -51,7 +51,6 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "@types/react": "^18.2.21",
-    "@types/react-dom": "^18.2.8",
-    "next": "^16.0.0"
+    "@types/react-dom": "^18.2.8"
   }
 }

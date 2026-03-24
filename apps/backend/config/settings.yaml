@@ -1,0 +1,115 @@
+# RAG_GOD Configuration Settings
+# This file contains additional configuration beyond environment variables
+
+# Graph Database Configuration
+neo4j:
+  uri: "bolt://localhost:7687"
+  user: "neo4j"
+  password: "password"
+  database: "rag_god"
+  max_connections: 100
+
+# LLM Configuration
+llm:
+  provider: "anthropic"
+  model: "claude-sonnet-4-20250514"
+  temperature: 0.1
+  max_tokens: 4000
+  timeout: 60
+  retry_attempts: 3
+
+# Memory Configuration
+memory:
+  mem0:
+    local: true
+    api_key: null
+    embedding_model: "text-embedding-ada-002"
+    vector_store: "chroma"
+  
+  hindsight:
+    enabled: true
+    replay_buffer_size: 1000
+    replay_frequency: 100
+
+# Retrieval Configuration
+retrieval:
+  llamaindex:
+    chunk_size: 1024
+    chunk_overlap: 200
+    similarity_top_k: 10
+    rerank_top_n: 5
+  
+  hybrid:
+    semantic_weight: 0.7
+    keyword_weight: 0.3
+    graph_weight: 0.5
+
+# Execution Configuration
+execution:
+  polymarket:
+    api_key: null
+    wallet_private_key: null
+    rpc_url: null
+    gas_limit: 21000
+    gas_price: 1000000000  # 1 gwei
+  
+  simulator:
+    enabled: true
+    initial_balance: 100000.0
+    transaction_fee: 0.001
+
+# Risk Management
+risk:
+  max_position_size: 1000.0
+  max_daily_loss: 5000.0
+  stop_loss_pct: 10.0
+  take_profit_pct: 20.0
+  max_concurrent_trades: 5
+
+# Evolution Configuration
+evolution:
+  auto_evolution:
+    enabled: true
+    evaluation_interval: 3600  # 1 hour
+    improvement_threshold: 0.05
+    max_generations: 10
+  
+  lab:
+    mutation_rate: 0.1
+    crossover_rate: 0.8
+    population_size: 50
+
+# Observability Configuration
+observability:
+  langsmith:
+    enabled: true
+    project_name: "RAG_GOD_2026"
+    api_key: null
+  
+  ragas:
+    enabled: true
+    evaluation_metrics:
+      - "faithfulness"
+      - "answer_relevancy"
+      - "context_precision"
+      - "context_recall"
+
+# Telegram Integration
+telegram:
+  bot_token: null
+  chat_id: null
+  notification_level: "info"
+
+# Performance Configuration
+performance:
+  parallel_execution: true
+  max_workers: 4
+  timeout: 300
+  cache_ttl: 3600
+
+# Logging Configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file_rotation: "daily"
+  max_log_files: 30

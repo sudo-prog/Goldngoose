@@ -1,4 +1,4 @@
-# PolyBloom — The Bespoke Ledger
+# Goldngoose — The Bespoke Ledger
 
 > Private-grade crypto intelligence & Polymarket terminal
 
@@ -16,8 +16,8 @@ Built with Next.js 15, Expo 52, TypeScript, and the Bespoke Ledger design system
 
 ## Quick Start
 ```bash
-git clone https://github.com/superpowerstudio/PolyBloom.git
-cd PolyBloom
+git clone https://github.com/sudo-prog/Goldngoose.git
+cd Goldngoose
 npm install
 npm run dev
 ```
